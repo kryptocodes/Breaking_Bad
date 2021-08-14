@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Loading from './components/layout/loading'
 import NavBar from './components/navBar/NavBar'
 
 
@@ -79,7 +80,9 @@ const Info = () => {
                             </div>
 
                         <h4 className="mt-4 mb-4 p-2 bg-success text-white">Quotes</h4>
-                        {!quotes?.isLoading && quotes?.data?.map((v) =>
+                        {quotes?.isLoading ? <Loading/> : 
+                        quotes?.data.length === 0 ? <p className="mx-auto">No quotes</p> :
+                        quotes?.data?.map((v) =>
                             <div className="p-2">
                             <p className="fst-italic">"{v?.quote}"</p>
                             </div>
@@ -97,7 +100,7 @@ const Info = () => {
     return (
         <div>
             <NavBar />
-            {data.isLoading ? <div >Loading...</div> : Content()}
+            {data.isLoading ? <Loading/> : Content()}
       
         </div>
     )
