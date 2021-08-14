@@ -53,7 +53,7 @@ const Info = () => {
                             <h4>Personal Info</h4>
                             <InfoContent title="Full Name" content={name} />
                             <InfoContent title="Birthday" content={birthday} />
-                            <InfoContent title="Occupation" content={occupation} />
+                            <InfoContent title="Occupation" content={occupation?.map((v) => <>{v} </>)} />
                             <InfoContent title="Status" content={status} />
                             {nickname && <InfoContent title="Nickname" content={nickname} />}
                             <InfoContent title="Portrayed" content={portrayed} />

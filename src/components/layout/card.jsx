@@ -12,7 +12,7 @@ const Card = ({ data }) => {
         <h5 className="card-title">{data?.name}</h5>
         <Badge title="Status" content={data?.status} />
         <Badge title="NickName" content={data?.nickname} />
-        <Badge title="Occupation" content={data?.occupation.map((v) => <>{v}</>)} />
+        <Badge title="Occupation" content={data?.occupation.map((v) => <>{v} </>)} />
         <Badge title="Date of Birth" content={data?.birthday} />
       </div>
     </div>
